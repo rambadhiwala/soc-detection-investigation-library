@@ -1,0 +1,30 @@
+{
+  "generated_by": "ioc-enrichment.py",
+  "count": 4,
+  "results": [
+    {
+      "ioc": "8.8.8.8",
+      "type": "ip",
+      "verdict": "unknown",
+      "notes": "Add external enrichment here (optional)."
+    },
+    {
+      "ioc": "example-malicious-domain.xyz",
+      "type": "domain",
+      "verdict": "unknown",
+      "notes": "Add external enrichment here (optional)."
+    },
+    {
+      "ioc": "https://evil.example/path",
+      "type": "url",
+      "verdict": "unknown",
+      "notes": "Add external enrichment here (optional)."
+    },
+    {
+      "ioc": "44d88612fea8a8f36de82e1278abb02f",
+      "type": "hash",
+      "verdict": "unknown",
+      "notes": "Add external enrichment here (optional)."
+    }
+  ]
+}

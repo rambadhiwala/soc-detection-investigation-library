@@ -93,4 +93,4 @@ See `/docs/mitre-coverage.md` for the full mapping table.
 
 ## Author
 
-- ** Ram Badhiwala ** (portfolio project)
+- **Ram Badhiwala** (portfolio project)

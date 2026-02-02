@@ -1,0 +1,16 @@
+title: High-Risk Sender Reputation / Domain Age
+id: email-05
+status: experimental
+description: Portfolio detection example for email.
+author: Riya Patel
+date: 2026/02/02
+logsource:
+  category: email
+  product: generic
+detection:
+  selection:
+    detection_id: "EMAIL-05"
+  condition: selection
+level: medium
+tags:
+  - attack.email-05

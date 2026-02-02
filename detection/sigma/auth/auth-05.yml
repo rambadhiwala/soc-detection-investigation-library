@@ -1,0 +1,16 @@
+title: New Admin Role Assignment / Privilege Change
+id: auth-05
+status: experimental
+description: Portfolio detection example for auth.
+author: Riya Patel
+date: 2026/02/02
+logsource:
+  category: auth
+  product: generic
+detection:
+  selection:
+    detection_id: "AUTH-05"
+  condition: selection
+level: medium
+tags:
+  - attack.auth-05

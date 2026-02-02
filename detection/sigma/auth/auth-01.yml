@@ -1,0 +1,16 @@
+title: Brute Force Burst (Multiple Failures)
+id: auth-01
+status: experimental
+description: Portfolio detection example for auth.
+author: Riya Patel
+date: 2026/02/02
+logsource:
+  category: auth
+  product: generic
+detection:
+  selection:
+    detection_id: "AUTH-01"
+  condition: selection
+level: medium
+tags:
+  - attack.auth-01

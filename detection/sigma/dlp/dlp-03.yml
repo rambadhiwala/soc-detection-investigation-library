@@ -1,0 +1,16 @@
+title: Sensitive Files Uploaded to Web/Cloud App (DLP)
+id: dlp-03
+status: experimental
+description: Portfolio detection example for dlp.
+author: Riya Patel
+date: 2026/02/02
+logsource:
+  category: dlp
+  product: generic
+detection:
+  selection:
+    detection_id: "DLP-03"
+  condition: selection
+level: medium
+tags:
+  - attack.dlp-03

@@ -1,0 +1,16 @@
+title: PowerShell EncodedCommand Execution
+id: endpt-01
+status: experimental
+description: Portfolio detection example for endpoint.
+author: Riya Patel
+date: 2026/02/02
+logsource:
+  category: endpoint
+  product: generic
+detection:
+  selection:
+    detection_id: "ENDPT-01"
+  condition: selection
+level: medium
+tags:
+  - attack.endpt-01

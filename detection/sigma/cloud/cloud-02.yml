@@ -1,0 +1,16 @@
+title: External Sharing Spike (SharePoint/OneDrive)
+id: cloud-02
+status: experimental
+description: Portfolio detection example for cloud.
+author: Riya Patel
+date: 2026/02/02
+logsource:
+  category: cloud
+  product: generic
+detection:
+  selection:
+    detection_id: "CLOUD-02"
+  condition: selection
+level: medium
+tags:
+  - attack.cloud-02

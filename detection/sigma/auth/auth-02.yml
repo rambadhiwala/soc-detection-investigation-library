@@ -1,0 +1,16 @@
+title: Password Spray Pattern (Low and Slow Across Users)
+id: auth-02
+status: experimental
+description: Portfolio detection example for auth.
+author: Riya Patel
+date: 2026/02/02
+logsource:
+  category: auth
+  product: generic
+detection:
+  selection:
+    detection_id: "AUTH-02"
+  condition: selection
+level: medium
+tags:
+  - attack.auth-02

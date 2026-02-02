@@ -1,0 +1,16 @@
+title: Sensitive Data Sent Externally via Email (DLP Match)
+id: dlp-01
+status: experimental
+description: Portfolio detection example for dlp.
+author: Riya Patel
+date: 2026/02/02
+logsource:
+  category: dlp
+  product: generic
+detection:
+  selection:
+    detection_id: "DLP-01"
+  condition: selection
+level: medium
+tags:
+  - attack.dlp-01

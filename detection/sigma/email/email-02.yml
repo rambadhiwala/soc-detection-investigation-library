@@ -1,0 +1,16 @@
+title: Suspicious Attachment Delivery (Executable/Archive)
+id: email-02
+status: experimental
+description: Portfolio detection example for email.
+author: Riya Patel
+date: 2026/02/02
+logsource:
+  category: email
+  product: generic
+detection:
+  selection:
+    detection_id: "EMAIL-02"
+  condition: selection
+level: medium
+tags:
+  - attack.email-02

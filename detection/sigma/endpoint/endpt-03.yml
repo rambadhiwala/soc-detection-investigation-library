@@ -1,0 +1,16 @@
+title: Suspicious LOLBins (rundll32/regsvr32)
+id: endpt-03
+status: experimental
+description: Portfolio detection example for endpoint.
+author: Riya Patel
+date: 2026/02/02
+logsource:
+  category: endpoint
+  product: generic
+detection:
+  selection:
+    detection_id: "ENDPT-03"
+  condition: selection
+level: medium
+tags:
+  - attack.endpt-03

@@ -1,0 +1,4 @@
+CloudAppEvents
+| where ActionType has_any ("DLP","DataLossPrevention")
+| where IsExternal == true
+| project Timestamp, AccountDisplayName, ActionType, Application, FileName, Destination

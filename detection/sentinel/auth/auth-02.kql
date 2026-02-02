@@ -1,0 +1,4 @@
+SigninLogs
+| where ResultType != 0
+| summarize Users=dcount(UserPrincipalName), Failures=count() by bin(TimeGenerated, 30m), IPAddress
+| where Users >= 15 and Failures >= 20

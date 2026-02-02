@@ -1,0 +1,4 @@
+EmailEvents
+| where SenderFromDomain !endswith "company.com"
+| where SenderFromDomain matches regex @"\.(top|xyz|icu|work|click)$"
+| summarize Emails=count(), Subjects=make_set(Subject, 10) by SenderFromDomain

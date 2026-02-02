@@ -1,0 +1,8 @@
+SigninLogs
+| where ResultType == 0
+| sort by UserPrincipalName asc, TimeGenerated asc
+| extend Geo=tostring(LocationDetails.countryOrRegion)
+| serialize
+| extend PrevTime=prev(TimeGenerated), PrevGeo=prev(Geo) 
+| extend DeltaMinutes = datetime_diff("minute", TimeGenerated, PrevTime)
+| where isnotempty(PrevTime) and Geo != PrevGeo and abs(DeltaMinutes) < 180

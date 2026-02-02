@@ -1,0 +1,4 @@
+AuditLogs
+| where OperationName has_any ("Add member to role","Add app role assignment","Update user","Add user")
+| where Result == "success"
+| project TimeGenerated, InitiatedBy, OperationName, TargetResources, Result

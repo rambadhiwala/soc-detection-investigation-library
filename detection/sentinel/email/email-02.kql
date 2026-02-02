@@ -1,0 +1,5 @@
+EmailAttachmentInfo
+| where SenderFromDomain !endswith "company.com"
+| extend Ext=tolower(tostring(split(FileName, ".")[-1]))
+| where Ext in ("iso","img","zip","rar","7z","exe","js","vbs","lnk")
+| summarize Attachments=count(), Files=make_set(FileName, 10) by SenderFromAddress, RecipientEmailAddress

@@ -1,0 +1,4 @@
+DeviceProcessEvents
+| where InitiatingProcessFileName in~ ("WINWORD.EXE","EXCEL.EXE","POWERPNT.EXE","OUTLOOK.EXE")
+| where FileName in~ ("powershell.exe","cmd.exe","wscript.exe","cscript.exe")
+| summarize Events=count(), Examples=make_set(ProcessCommandLine, 5) by DeviceName, AccountName

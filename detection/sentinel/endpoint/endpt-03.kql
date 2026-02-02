@@ -1,0 +1,4 @@
+DeviceProcessEvents
+| where FileName in~ ("rundll32.exe","regsvr32.exe")
+| where ProcessCommandLine has_any ("http","scrobj.dll","javascript:","/i:")
+| summarize Events=count(), Examples=make_set(ProcessCommandLine, 5) by DeviceName, AccountName

@@ -1,0 +1,5 @@
+AADNonInteractiveUserSignInLogs
+| where ResultType != 0
+| where Status has_any ("MFA", "Multi-Factor")
+| summarize MFAEvents=count() by bin(TimeGenerated, 10m), UserPrincipalName
+| where MFAEvents >= 6

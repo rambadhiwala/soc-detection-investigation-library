@@ -1,0 +1,4 @@
+DeviceProcessEvents
+| where FileName =~ "powershell.exe"
+| where ProcessCommandLine has_any ("-enc","EncodedCommand","IEX","DownloadString")
+| summarize Events=count(), Examples=make_set(ProcessCommandLine, 5) by DeviceName, AccountName

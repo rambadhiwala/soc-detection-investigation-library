@@ -1,0 +1,4 @@
+EmailEvents
+| where SenderFromDomain !endswith "company.com"
+| where UrlCount > 0
+| summarize Emails=count(), Subjects=make_set(Subject, 5) by SenderFromDomain, RecipientEmailAddress

@@ -1,0 +1,4 @@
+OfficeActivity
+| where Operation in ("New-InboxRule","Set-InboxRule")
+| where Parameters has_any ("ForwardTo","RedirectTo","ForwardingSmtpAddress")
+| project TimeGenerated, UserId, Operation, Parameters, ClientIP

@@ -1,0 +1,5 @@
+SigninLogs
+| where ResultType == 0
+| extend UA=tostring(UserAgent)
+| summarize FirstSeen=min(TimeGenerated), LastSeen=max(TimeGenerated) by UserPrincipalName, UA
+| where FirstSeen >= ago(14d)

@@ -1,0 +1,4 @@
+OfficeActivity
+| where Operation in ("SharingSet","SharingInvitationCreated","AnonymousLinkCreated","CompanyLinkCreated")
+| summarize Shares=count(), UniqueRecipients=dcount(Recipient) by bin(TimeGenerated, 30m), UserId
+| where Shares >= 20 or UniqueRecipients >= 10

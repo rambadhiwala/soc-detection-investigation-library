@@ -1,0 +1,4 @@
+SigninLogs
+| where ResultType != 0
+| summarize Failures=count(), SrcIPs=dcount(IPAddress) by bin(TimeGenerated, 5m), UserPrincipalName
+| where Failures >= 10

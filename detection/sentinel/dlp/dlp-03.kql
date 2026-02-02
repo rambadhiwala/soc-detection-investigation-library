@@ -1,0 +1,3 @@
+CloudAppEvents
+| where ActionType has_any ("FileUploaded","CloudUpload","DLP")
+| project Timestamp, AccountDisplayName, Application, FileName, Destination

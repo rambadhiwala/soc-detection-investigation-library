@@ -1,0 +1,3 @@
+AuditLogs
+| where OperationName has_any ("Consent to application","Add service principal","Add OAuth2PermissionGrant")
+| project TimeGenerated, InitiatedBy, OperationName, TargetResources, Result

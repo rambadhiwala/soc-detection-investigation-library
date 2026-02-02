@@ -1,0 +1,3 @@
+DeviceEvents
+| where ActionType has_any ("UsbDriveMounted","FileCopiedToUsb")
+| project Timestamp, DeviceName, InitiatingProcessAccountName, AdditionalFields

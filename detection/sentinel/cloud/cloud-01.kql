@@ -1,0 +1,4 @@
+OfficeActivity
+| where Operation == "FileDownloaded"
+| summarize Downloads=count(), UniqueFiles=dcount(OfficeObjectId) by bin(TimeGenerated, 15m), UserId, ClientIP
+| where Downloads >= 50 or UniqueFiles >= 30

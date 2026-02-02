@@ -1,0 +1,6 @@
+index=o365 sourcetype=exchange direction=inbound
+| search (url_count>0 OR like(body,"%http%"))
+| eval external=if(sender_domain!="company.com",1,0)
+| where external=1
+| stats count as emails values(subject) as subjects values(sender) as senders by sender_domain, recipient
+| eval severity="medium", detection_id="EMAIL-01"

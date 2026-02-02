@@ -1,0 +1,4 @@
+index=dlp sourcetype=dlp_events channel="email" direction="outbound" policy_match=1
+| stats count values(policy_name) as policies values(data_type) as data_types by user, recipient_domain, _time
+| where recipient_domain!="company.com"
+| eval severity="high", detection_id="DLP-01"

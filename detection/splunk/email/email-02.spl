@@ -1,0 +1,5 @@
+index=o365 sourcetype=exchange direction=inbound attachment_count>0
+| eval ext=lower(mvindex(split(attachment_names,"."),-1))
+| where sender_domain!="company.com" AND ext IN ("iso","img","zip","rar","7z","exe","js","vbs","lnk")
+| stats count values(attachment_names) as attachments values(subject) as subjects by sender, recipient
+| eval severity="high", detection_id="EMAIL-02"

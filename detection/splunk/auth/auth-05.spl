@@ -1,0 +1,3 @@
+index=iam sourcetype=iam_audit action IN ("AddMemberToRole","AssignRole","GrantAdmin","PrivilegeEscalation")
+| stats count values(action) as actions values(target_role) as roles by user, target_user, src_ip, _time
+| eval severity="critical", detection_id="AUTH-05"

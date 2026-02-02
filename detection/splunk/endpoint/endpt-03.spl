@@ -1,0 +1,4 @@
+index=edr sourcetype=process_creation process_name IN ("rundll32.exe","regsvr32.exe")
+| search (like(cmdline,"%http%") OR like(cmdline,"%scrobj.dll%") OR like(cmdline,"%/i:%") OR like(cmdline,"%javascript:%"))
+| stats count values(cmdline) as cmdlines by host, user, process_name
+| eval severity="medium", detection_id="ENDPT-03"

@@ -1,0 +1,5 @@
+index=o365 sourcetype=exchange direction=inbound sender_domain!="company.com"
+| eval risky_tld=if(match(sender_domain,"\\.(top|xyz|icu|work|click)$"),1,0)
+| where risky_tld=1
+| stats count values(subject) as subjects values(sender) as senders by sender_domain
+| eval severity="low", detection_id="EMAIL-05"

@@ -1,0 +1,4 @@
+index=edr sourcetype=process_creation process_name="powershell.exe"
+| search (like(cmdline,"% -enc %") OR like(cmdline,"%EncodedCommand%") OR like(cmdline,"%IEX%") OR like(cmdline,"%DownloadString%"))
+| stats count values(cmdline) as cmdlines values(parent_process) as parents by host, user, process_name
+| eval severity="high", detection_id="ENDPT-01"

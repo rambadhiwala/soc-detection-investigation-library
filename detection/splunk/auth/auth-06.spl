@@ -1,0 +1,4 @@
+index=auth sourcetype=auth_logs action=login result=success
+| stats earliest(_time) as first_seen latest(_time) as last_seen values(user_agent) as ua values(device_id) as devices by user, device_id
+| where first_seen >= relative_time(now(), "-14d@d")
+| eval severity="medium", detection_id="AUTH-06"

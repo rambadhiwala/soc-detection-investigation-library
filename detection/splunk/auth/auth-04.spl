@@ -1,0 +1,5 @@
+index=auth sourcetype=mfa_logs action=mfa_challenge result IN ("denied","timeout","failed")
+| bucket _time span=10m
+| stats count as mfa_events values(result) as results by _time user
+| where mfa_events >= 6
+| eval severity="medium", detection_id="AUTH-04"

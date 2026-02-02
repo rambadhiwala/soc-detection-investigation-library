@@ -1,0 +1,4 @@
+index=edr sourcetype=process_creation parent_process IN ("WINWORD.EXE","EXCEL.EXE","POWERPNT.EXE","OUTLOOK.EXE")
+| search process_name IN ("powershell.exe","cmd.exe","wscript.exe","cscript.exe")
+| stats count values(cmdline) as cmdlines values(parent_process) as parents by host, user, process_name
+| eval severity="high", detection_id="ENDPT-02"

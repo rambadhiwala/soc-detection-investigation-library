@@ -1,0 +1,5 @@
+index=auth sourcetype=auth_logs action=login result=failure
+| bucket _time span=30m
+| stats dc(user) as users count as failures values(user) as user_list by _time src_ip
+| where users >= 15 AND failures >= 20
+| eval severity="high", detection_id="AUTH-02"

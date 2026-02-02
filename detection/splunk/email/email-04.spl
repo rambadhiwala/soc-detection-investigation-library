@@ -1,0 +1,3 @@
+index=o365 sourcetype=o365_audit operation IN ("ConsentToApp","AddServicePrincipal","AddOAuth2PermissionGrant","AddAppRoleAssignment")
+| stats count values(operation) as ops values(app_display_name) as apps values(permission) as perms by user, src_ip, _time
+| eval severity="high", detection_id="EMAIL-04"

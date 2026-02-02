@@ -1,0 +1,5 @@
+index=o365 sourcetype=sharepoint operation IN ("SharingSet","SharingInvitationCreated","AnonymousLinkCreated","CompanyLinkCreated")
+| bucket _time span=30m
+| stats count as shares dc(target_user_or_email) as uniq_recipients values(site_url) as sites by _time user
+| where shares >= 20 OR uniq_recipients >= 10
+| eval severity="medium", detection_id="CLOUD-02"

@@ -1,0 +1,3 @@
+index=dlp sourcetype=dlp_events channel IN ("web","cloud") operation IN ("Upload","Sync") policy_match=1
+| stats count values(destination_app) as apps values(data_type) as data_types by user, host, _time
+| eval severity="high", detection_id="DLP-03"

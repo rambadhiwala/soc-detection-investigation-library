@@ -1,0 +1,3 @@
+index=dlp sourcetype=dlp_events channel="endpoint" operation="CopyToRemovableMedia" policy_match=1
+| stats count values(file_path) as files values(data_type) as data_types by user, host, device_id, _time
+| eval severity="high", detection_id="DLP-02"

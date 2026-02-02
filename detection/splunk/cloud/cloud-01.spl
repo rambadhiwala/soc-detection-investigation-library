@@ -1,0 +1,5 @@
+index=o365 sourcetype=sharepoint operation="FileDownloaded"
+| bucket _time span=15m
+| stats count as downloads dc(file_name) as uniq_files values(site_url) as sites by _time user, src_ip
+| where downloads >= 50 OR uniq_files >= 30
+| eval severity="high", detection_id="CLOUD-01"

@@ -1,0 +1,4 @@
+index=o365 sourcetype=o365_audit operation IN ("New-InboxRule","Set-InboxRule","UpdateInboxRules","CreateInboxRule")
+| search (like(parameters,"%ForwardTo%") OR like(parameters,"%RedirectTo%") OR like(parameters,"%ForwardingSmtpAddress%"))
+| stats count values(operation) as ops values(parameters) as params by user, src_ip, _time
+| eval severity="high", detection_id="EMAIL-03"
